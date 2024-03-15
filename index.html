@@ -7,80 +7,45 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div id="clock">
-        <div id="hour"></div>
-        <div id="minute"></div>
-        <div id="second"></div>
-    </div>
-
-    
-        <div><h3 class="p1">12</h3>
-            <h3 class="h8">6</h3></div>
-        <div><h3 class="h2">3</h3>
-            <h3 class="h4">9</h3></div>      
-    
-    
+    <div class="clock">
+        <div class="needle hrs"></div>
+        <div class="needle min"></div>
+        <div class="needle sec"></div>
+        <div class="number number-1">1</div>
+        <div class="number number-2">2</div>
+        <div class="number number-3">3</div>
+        <div class="number number-4">4</div>
+        <div class="number number-5">5</div>
+        <div class="number number-6">6</div>
+        <div class="number number-7">7</div>
+        <div class="number number-8">8</div>
+        <div class="number number-9">9</div>
+        <div class="number number-10">10</div>
+        <div class="number number-11">11</div>
+        <div class="number number-12">12</div>
+  
+      </div>
+  
 
     <script>
-     function updateClock() {
-    const d = new Date();
-    const hr = d.getHours();
-    const min = d.getMinutes();
-    const sec = d.getSeconds();
-    const hrrotation = 30 * hr + min / 2;
-    const minrotation = 6 * min;
-    const secrotation = 6 * sec;
+     const hour=document.querySelector('.hrs');
+const minute=document.querySelector('.min');
+const second=document.querySelector('.sec');
 
-    document.getElementById('hour').style.transform = `rotate(${hrrotation}deg)`;
-    document.getElementById('minute').style.transform = `rotate(${minrotation}deg)`;
-    document.getElementById('second').style.transform = `rotate(${secrotation}deg)`;
+setInterval(runClock,1000);
+
+function runClock(){
+  const time=new Date();
+  const sec=time.getSeconds()/60;
+  const min=(sec+time.getMinutes())/60;
+  const hrs=(min+time.getHours())/12;
+  hour.style.setProperty('--rotation',hrs*360);
+  minute.style.setProperty('--rotation',min*360);
+  second.style.setProperty('--rotation',sec*360);
+
 }
 
-setInterval(updateClock, 1000);
+runClock();
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
