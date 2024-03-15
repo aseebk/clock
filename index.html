@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="clock">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+
+    <div>
+        <div><h3 class="p1">12</h3></div>
+        <div><h3 class="h2">3</h3></div>      
+        <div><h3 class="h8">6</h3></div>
+        <div><h3 class="h4">9</h3></div>
+        <div class="dot">.</div>
+    </div>
+    
+
+    <script>
+     function updateClock() {
+    const d = new Date();
+    const hr = d.getHours();
+    const min = d.getMinutes();
+    const sec = d.getSeconds();
+    const hrrotation = 30 * hr + min / 2;
+    const minrotation = 6 * min;
+    const secrotation = 6 * sec;
+
+    document.getElementById('hour').style.transform = `rotate(${hrrotation}deg)`;
+    document.getElementById('minute').style.transform = `rotate(${minrotation}deg)`;
+    document.getElementById('second').style.transform = `rotate(${secrotation}deg)`;
+}
+
+setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
